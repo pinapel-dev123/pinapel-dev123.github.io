@@ -1,1 +1,61 @@
-hello im pinapel-dev123!
+hello :) im pinapel-dev123!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome!</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2e3440;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d8dee9;
+            user-select: none;
+        }
+        .score-board {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .spinning-image {
+            width: 250px;
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+        .spinning-image:active {
+            transform: scale(0.95);
+        }
+        .rotate {
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="score-board">Score: <span id="scoreDisplay">0</span></div>
+    <img src="pine.png" alt="pineapple" class="spinning-image" id="spinTarget">
+    <script>
+        const image = document.getElementById('spinTarget');
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        let score = 0;
+        image.addEventListener('click', () => {
+            score++;
+            scoreDisplay.textContent = score;
+            if (!image.classList.contains('rotate')) {
+                image.classList.add('rotate');
+            }
+        });
+    </script>
+</body>
+</html>
