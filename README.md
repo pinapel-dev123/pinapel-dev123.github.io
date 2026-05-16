@@ -1,1 +1,0 @@
-# pineapple-clicker.github.io
